@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>My Profile - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+    <a class="back-link" href="dashboard.html">‹ Back</a>
+<div class="profile-page">
+  <section class="profile-page-heading"><p class="dashboard-eyebrow">ACCOUNT SETTINGS</p><h1 class="title">My Profile</h1><p class="subtitle">This profile is shared with the Android app.</p></section>
+  <div class="profile-layout">
+    <section class="profile-summary-card"><img class="avatar profile-avatar" src="assets/images/avatar.png" alt="Profile avatar"><h2 class="profile-name" data-profile="fullName">…</h2><p class="profile-role">Medical Adherence User</p><a class="btn" href="edit_profile.html">Edit Profile</a><a class="btn danger" href="logout.html" data-firebase-logout>Logout</a></section>
+    <section class="profile-details-section"><h2>Personal Information</h2><p class="profile-section-description">Your account details are displayed below.</p><div class="profile-information-card">
+      <div class="profile-information-row"><div class="profile-information-label">Full Name</div><div class="profile-information-value" data-profile="fullName">…</div></div>
+      <div class="profile-information-row"><div class="profile-information-label">Email Address</div><div class="profile-information-value" data-profile="email">…</div></div>
+      <div class="profile-information-row"><div class="profile-information-label">Phone Number</div><div class="profile-information-value" data-profile="phone">…</div></div>
+      <div class="profile-information-row"><div class="profile-information-label">Medical Condition</div><div class="profile-information-value" data-profile="medicalCondition">…</div></div>
+    </div></section>
+  </div>
+</div>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>

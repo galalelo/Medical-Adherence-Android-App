@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Add Medication - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+    <a class="back-link" href="medications.html">‹ Back</a>
+<div class="header-block center"><h1 class="title">Add Medication</h1><p class="subtitle">This medication will appear in the Android app too.</p></div>
+<form class="form-card" data-medication-form>
+  <div class="input-group medication-lookup-group"><label for="medicationName">Medication Name</label><input id="medicationName" name="medicationName" autocomplete="off" placeholder="Start typing a medication" required data-medication-lookup><div class="medication-suggestions" data-medication-suggestions hidden></div><small>Suggestions use the free U.S. National Library of Medicine RxNorm service.</small></div>
+  <div class="medication-preview" data-medication-preview hidden></div>
+  <div class="medication-safety-card" data-medication-safety hidden></div>
+  <div class="input-group"><label for="dosage">Dosage</label><input id="dosage" name="dosage" placeholder="Dosage" required></div>
+  <div class="input-group"><label for="medicationTime">Time</label><input id="medicationTime" type="time" name="medicationTime" required></div>
+  <button class="btn" type="submit">Save Medication</button>
+</form>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>

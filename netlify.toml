@@ -1,0 +1,10 @@
+[build]
+  publish = "MedicalAdherence_Integrated/Website/netlify"
+
+# Firebase client configuration is intentionally loaded by the browser from
+# assets/js/firebase-sync.js. No server-side secrets are required by Netlify.
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"

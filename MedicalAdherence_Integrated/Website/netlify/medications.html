@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>My Medications - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+    <a class="back-link" href="dashboard.html">‹ Back</a>
+<div class="medications-page">
+  <section class="medications-heading"><div><p class="dashboard-eyebrow">MEDICATION MANAGEMENT</p><h1 class="title">My Medications</h1><p class="subtitle">Manage your medication schedule and track daily doses. Updates sync with the Android app.</p></div><a class="btn add-medication-btn" href="add_medication.html">+ Add Medication</a></section>
+  <section class="medications-list-section"><div class="medications-section-heading"><h2>Your Medication List</h2><p>Review dosage, scheduled time and today's dose status.</p><input class="medication-search" type="search" placeholder="Search your medications" aria-label="Search your medications" data-medication-search></div><div data-medication-list><div class="empty-state"><p>Loading your medications…</p></div></div></section>
+</div>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>

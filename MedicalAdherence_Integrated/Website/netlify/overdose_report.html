@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Overdose Safety Report - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+    <a class="back-link" href="dashboard.html">‹ Back</a>
+<div class="safety-page">
+  <section class="safety-hero">
+    <p class="dashboard-eyebrow">SAFETY SUPPORT</p>
+    <h1 class="title">Possible Overdose Report</h1>
+    <p class="subtitle">Record what happened and get connected to official emergency guidance.</p>
+  </section>
+  <div class="urgent-card">
+    <strong>If the person collapses, has a seizure, has trouble breathing, or cannot be awakened, call emergency services immediately.</strong>
+    <p>This form is not a diagnosis and must not delay emergency care.</p>
+  </div>
+  <form class="form-card safety-report-form" data-overdose-report>
+    <div class="input-group medication-lookup-group">
+      <label for="reportMedication">Medication or substance</label>
+      <input id="reportMedication" name="reportMedication" autocomplete="off" placeholder="Start typing a medication" required data-medication-lookup>
+      <div class="medication-suggestions" data-medication-suggestions hidden></div>
+    </div>
+    <div class="input-group"><label for="reportAmount">Estimated amount taken</label><input id="reportAmount" name="reportAmount" placeholder="For example: 4 tablets or 20 mL" required></div>
+    <div class="input-group"><label for="reportWhen">When did it happen?</label><input id="reportWhen" name="reportWhen" type="datetime-local" required></div>
+    <div class="input-group"><label for="reportSymptoms">Symptoms or other details</label><textarea id="reportSymptoms" name="reportSymptoms" rows="4" placeholder="Describe symptoms, age, and anything else responders should know"></textarea></div>
+    <button class="btn danger" type="submit">SAVE REPORT AND SHOW HELP</button>
+  </form>
+  <div class="safety-result" data-overdose-result hidden></div>
+  <p class="safety-disclaimer">For a suspected poisoning in the United States, Poison Control is free and confidential at <a href="tel:+18002221222">1-800-222-1222</a>. Use <a href="https://triage.webpoisoncontrol.org/" target="_blank" rel="noopener">webPOISONCONTROL</a> when appropriate. Outside the U.S., use your local poison center or emergency number.</p>
+</div>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>

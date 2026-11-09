@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Dashboard - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+<div class="dashboard-page">
+  <section class="dashboard-welcome">
+    <img class="dashboard-logo" src="assets/images/app_logo.png" alt="Medical Adherence Logo">
+    <div class="dashboard-welcome-text"><p class="dashboard-eyebrow">MEDICAL ADHERENCE</p><h1 class="title">Welcome, <span data-firebase-name>...</span></h1><p class="subtitle">Manage your medications and keep track of your health.</p></div>
+  </section>
+  <section class="dashboard-overview"><div class="dashboard-section-heading"><h2>Overview</h2><p>Your medication summary</p></div>
+    <div class="stat-card dashboard-stat"><div class="stat-icon" aria-hidden="true">+</div><div><div class="stat-label">Total Medications</div><div class="stat-number" data-medication-count>…</div></div></div>
+  </section>
+  <section class="dashboard-actions"><div class="dashboard-section-heading"><h2>Quick Actions</h2><p>Choose a section to continue</p></div>
+    <div class="dashboard-action-grid">
+      <a class="action-card" href="medications.html"><span class="dashboard-action-icon" aria-hidden="true">+</span><span class="dashboard-action-copy"><strong>My Medications</strong><small>View and manage your medications</small></span><span class="chevron" aria-hidden="true">›</span></a>
+      <a class="action-card" href="notifications.html"><span class="dashboard-action-icon" aria-hidden="true">!</span><span class="dashboard-action-copy"><strong>Notifications</strong><small>View your notifications and reminders</small></span><span class="chevron" aria-hidden="true">›</span></a>
+      <a class="action-card" href="profile.html"><span class="dashboard-action-icon" aria-hidden="true">&#9679;</span><span class="dashboard-action-copy"><strong>My Profile</strong><small>View and update your profile</small></span><span class="chevron" aria-hidden="true">›</span></a>
+      <a class="action-card" href="about.html"><span class="dashboard-action-icon" aria-hidden="true">i</span><span class="dashboard-action-copy"><strong>About Application</strong><small>Learn more about Medical Adherence</small></span><span class="chevron" aria-hidden="true">›</span></a>
+      <a class="action-card safety-action" href="overdose_report.html"><span class="dashboard-action-icon" aria-hidden="true">!</span><span class="dashboard-action-copy"><strong>Possible Overdose</strong><small>Record details and get urgent guidance</small></span><span class="chevron" aria-hidden="true">›</span></a>
+    </div>
+  </section>
+  <p><a class="btn danger" href="logout.html" data-firebase-logout>Logout</a></p>
+</div>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>

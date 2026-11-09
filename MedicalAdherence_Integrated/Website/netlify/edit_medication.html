@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Edit Medication - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+    <a class="back-link" href="medications.html">‹ Back</a>
+<div class="header-block center"><h1 class="title">Edit Medication</h1><p class="subtitle">Changes sync to your Android app.</p></div>
+<form class="form-card" data-medication-form>
+  <div class="input-group"><label for="medicationName">Medication Name</label><input id="medicationName" name="medicationName" placeholder="Medication Name" required></div>
+  <div class="input-group"><label for="dosage">Dosage</label><input id="dosage" name="dosage" placeholder="Dosage" required></div>
+  <div class="input-group"><label for="medicationTime">Time</label><input id="medicationTime" type="time" name="medicationTime" required></div>
+  <button class="btn" type="submit">Update Medication</button>
+</form>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>

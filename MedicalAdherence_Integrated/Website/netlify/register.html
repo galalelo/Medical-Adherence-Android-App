@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Create Account - Medical Adherence App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/medication-safety.css">
+</head>
+<body class="">
+<div class="phone-shell">
+    <a class="back-link" href="login.html">‹ Back</a>
+<section class="auth-screen">
+  <img class="logo" src="assets/images/app_logo.png" alt="Medical Adherence Logo">
+  <h1 class="title">Create Account</h1><p class="subtitle">Use this account in the Android app and website.</p>
+  <form class="form-card" data-firebase-register>
+    <div class="input-group"><label for="name">Full Name</label><input id="name" name="name" autocomplete="name" placeholder="Full Name" required></div>
+    <div class="input-group"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" placeholder="Email" required></div>
+    <div class="input-group"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone Number"></div>
+    <div class="input-group"><label for="condition">Medical Condition</label><input id="condition" name="condition" placeholder="Medical Condition"></div>
+    <div class="input-group"><label for="password">Password</label><input id="password" type="password" name="password" autocomplete="new-password" minlength="6" placeholder="Password" required></div>
+    <button class="btn" type="submit">CREATE ACCOUNT</button>
+  </form>
+  <p class="footnote">Your health journey starts here.</p>
+</section>
+
+</div>
+<script type="module" src="assets/js/firebase-sync.js"></script>
+</body>
+</html>
