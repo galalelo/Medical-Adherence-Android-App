@@ -37,8 +37,25 @@ steps:
 
   - bash: |
       set -euxo pipefail
-      yes | sdkmanager --licenses >/dev/null || true
-      sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+      sdk_root="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/lib/android/sdk}}"
+      sdkmanager_path=""
+      for candidate in \
+        "${sdk_root}/cmdline-tools/latest/bin/sdkmanager" \
+        "${sdk_root}/cmdline-tools/bin/sdkmanager" \
+        "${sdk_root}/tools/bin/sdkmanager"; do
+        if [[ -x "${candidate}" ]]; then
+          sdkmanager_path="${candidate}"
+          break
+        fi
+      done
+      if [[ -z "${sdkmanager_path}" ]]; then
+        echo "##vso[task.logissue type=error]Could not find sdkmanager under ${sdk_root}"
+        find "${sdk_root}" -maxdepth 5 -type f -name sdkmanager -print || true
+        exit 1
+      fi
+      echo "Using ${sdkmanager_path}"
+      yes | "${sdkmanager_path}" --licenses >/dev/null || true
+      "${sdkmanager_path}" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
     displayName: Install Android SDK components
     env:
       ANDROID_SDK_ROOT: $(ANDROID_HOME)
