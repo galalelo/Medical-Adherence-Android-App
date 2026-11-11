@@ -80,12 +80,12 @@ const renderMedicationSafety = async (name, rxcui, preview, safety) => {
   if (preview) { preview.hidden = false; preview.innerHTML = '<span class="safety-loading">Looking for an official DailyMed label image…</span>'; }
   if (safety) { safety.hidden = false; safety.innerHTML = '<span class="safety-loading">Loading FDA label safety information…</span>'; }
   try {
-    const splResponse = await fetch(`https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=${encodeURIComponent(name)}`);
+    const splResponse = await fetch(`/api/dailymed?path=spls&drug_name=${encodeURIComponent(name)}`);
     const splData = splResponse.ok ? await splResponse.json() : null;
     const setid = splData?.data?.[0]?.setid;
     let imageUrl = '';
     if (setid) {
-      const mediaResponse = await fetch(`https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/${setid}/media.json`);
+      const mediaResponse = await fetch(`/api/dailymed?path=spls%2F${encodeURIComponent(setid)}%2Fmedia`);
       const mediaData = mediaResponse.ok ? await mediaResponse.json() : null;
       imageUrl = mediaData?.data?.media?.find(item => /^image\//i.test(item.mime_type || ''))?.url || '';
     }
