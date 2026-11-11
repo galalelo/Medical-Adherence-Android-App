@@ -55,7 +55,8 @@ steps:
     condition: always()
     inputs:
       testResultsFormat: JUnit
-      testResultsFiles: '$(androidProjectDir)/app/build/test-results/testDebugUnitTest/*.xml'
+      searchFolder: '$(Build.SourcesDirectory)'
+      testResultsFiles: '**/app/build/test-results/testDebugUnitTest/TEST-*.xml'
       testRunTitle: Android unit tests
       failTaskOnFailedTests: true
       publishRunAttachments: true
