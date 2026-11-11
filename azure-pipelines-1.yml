@@ -1,0 +1,70 @@
+# Azure DevOps pipeline for the Android app.
+# Create an Azure DevOps pipeline pointing at this file to run it.
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - MedicalAdherence_Android_Safety_Changes/*
+      - azure-pipelines.yml
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - MedicalAdherence_Android_Safety_Changes/*
+      - azure-pipelines.yml
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  androidProjectDir: MedicalAdherence_Android_Safety_Changes
+
+steps:
+  - checkout: self
+
+  - task: JavaToolInstaller@0
+    displayName: Use Java 17
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: x64
+      jdkSourceOption: PreInstalled
+
+  - bash: |
+      set -euxo pipefail
+      yes | sdkmanager --licenses >/dev/null || true
+      sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+    displayName: Install Android SDK components
+    env:
+      ANDROID_SDK_ROOT: $(ANDROID_HOME)
+
+  - bash: |
+      set -euxo pipefail
+      chmod +x gradlew
+      ./gradlew --no-daemon --stacktrace testDebugUnitTest assembleDebug
+    displayName: Run unit tests and assemble debug APK
+    workingDirectory: $(androidProjectDir)
+
+  - task: PublishTestResults@2
+    displayName: Publish unit-test results
+    condition: always()
+    inputs:
+      testResultsFormat: JUnit
+      searchFolder: '$(Build.SourcesDirectory)'
+      testResultsFiles: '**/app/build/test-results/testDebugUnitTest/TEST-*.xml'
+      testRunTitle: Android unit tests
+      failTaskOnFailedTests: true
+      publishRunAttachments: true
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish debug APK
+    condition: succeeded()
+    inputs:
+      targetPath: '$(Build.SourcesDirectory)/$(androidProjectDir)/app/build/outputs/apk/debug'
+      artifact: medical-adherence-debug-apk
+      publishLocation: pipeline
