@@ -60,23 +60,18 @@ steps:
     env:
       ANDROID_SDK_ROOT: $(ANDROID_HOME)
 
-  - bash: |
-      set -euxo pipefail
-      chmod +x gradlew
-      ./gradlew --no-daemon --stacktrace testDebugUnitTest assembleDebug
-    displayName: Run unit tests and assemble debug APK
-    workingDirectory: $(androidProjectDir)
-
-  - task: PublishTestResults@2
-    displayName: Publish unit-test results
-    condition: always()
+  - task: Gradle@3
+    displayName: Run Gradle tests and assemble debug APK
     inputs:
-      testResultsFormat: JUnit
-      searchFolder: '$(Build.SourcesDirectory)'
+      gradleWrapperFile: '$(androidProjectDir)/gradlew'
+      workingDirectory: '$(androidProjectDir)'
+      tasks: 'testDebugUnitTest assembleDebug'
+      options: '--no-daemon --stacktrace'
+      publishJUnitResults: true
       testResultsFiles: '**/app/build/test-results/testDebugUnitTest/TEST-*.xml'
-      testRunTitle: Android unit tests
-      failTaskOnFailedTests: true
-      publishRunAttachments: true
+      javaHomeOption: JDKVersion
+      jdkVersionOption: '1.17'
+      jdkArchitectureOption: x64
 
   - task: PublishPipelineArtifact@1
     displayName: Publish debug APK
