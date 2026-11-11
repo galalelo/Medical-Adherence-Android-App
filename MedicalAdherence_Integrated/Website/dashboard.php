@@ -6,7 +6,7 @@ include 'partials/header.php';
 ?>
 <div class="dashboard-page">
   <section class="dashboard-welcome">
-    <img class="dashboard-logo" src="assets/images/app_logo.png" alt="Medical Adherence Logo">
+    <img class="dashboard-logo" src="/assets/images/app_logo.png" alt="Medical Adherence Logo">
     <div class="dashboard-welcome-text"><p class="dashboard-eyebrow">MEDICAL ADHERENCE</p><h1 class="title">Welcome, <span data-firebase-name>...</span></h1><p class="subtitle">Manage your medications and keep track of your health.</p></div>
   </section>
   <section class="dashboard-overview"><div class="dashboard-section-heading"><h2>Overview</h2><p>Your medication summary</p></div>
